@@ -3,8 +3,8 @@ import os
 from PyQt6.QtWidgets import QApplication, QMainWindow, QVBoxLayout, QWidget, QTextEdit, QPushButton, QLabel, QComboBox
 import torch
 from transformers import BertTokenizer, BertForSequenceClassification
-
-# === Cấu hình model BERT ===
+from Translator import Translate_txt
+# === Init model BERT ===
 MODEL_PATH = "./results/checkpoint-380"  
 LABEL_NAMES = ['advertising', 'entertainment', 'friends', 'spam', 'study', 'work']
 
@@ -78,6 +78,11 @@ class BertSentimentApp(QMainWindow):
         self.example_combo.currentTextChanged.connect(self.load_example)
         layout.addWidget(self.example_combo)
 
+        # Translate button
+        self.translate_button = QPushButton("Translate Text", self)
+        self.translate_button.clicked.connect(self.translate_text)
+        layout.addWidget(self.translate_button)
+
         # Analyze button
         self.analyze_button = QPushButton("Classify Text", self)
         self.analyze_button.clicked.connect(self.analyze_text)
@@ -92,6 +97,11 @@ class BertSentimentApp(QMainWindow):
             if name == example_name:
                 self.text_input.setText(text)
                 break
+
+    def translate_text(self):
+        input_text = self.text_input.toPlainText().strip()
+        text = Translate_txt(input_text)
+        self.text_input.setText(text)
 
     def analyze_text(self):
         input_text = self.text_input.toPlainText().strip()
