@@ -11,7 +11,7 @@ from transformers import BertTokenizer, BertForSequenceClassification
 from Translator import Translate_txt
 from email_crawler import EmailCrawler 
 
-# === Init model BERT ===
+# === Innit model BERT ===
 MODEL_PATH = "./results/checkpoint-380"  
 LABEL_NAMES = ['advertising', 'entertainment', 'friends', 'spam', 'study', 'work']
 
@@ -311,6 +311,7 @@ class BertSentimentApp(QMainWindow):
             return
         
         df = self.crawled_data
+        print(df)
         self.results_table.setRowCount(len(df))
         self.results_table.setColumnCount(len(df.columns))
         self.results_table.setHorizontalHeaderLabels(df.columns.tolist())

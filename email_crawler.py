@@ -186,8 +186,8 @@ class EmailCrawler:
                     data['email_from'].append(sender_email)
                     data['sender_name'].append(sender_name)
                     data['subject'].append(subject)
-                    data['content'].append(content)
                     data['content_en'].append(content_en)
+                    data['content'].append(content)
                     
                     print(f"Processed email {i+1}/{len(messages)}: {sender_email}")
                     
