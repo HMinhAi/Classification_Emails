@@ -12,7 +12,7 @@ from Translator import Translate_txt
 from email_crawler import EmailCrawler 
 
 # === Innit model BERT ===
-MODEL_PATH = "./results/checkpoint-380"  
+MODEL_PATH = "./results/checkpoint-440"  
 LABEL_NAMES = ['advertising', 'entertainment', 'friends', 'spam', 'study', 'work']
 
 # Load model + tokenizer

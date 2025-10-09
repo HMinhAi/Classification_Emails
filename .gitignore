@@ -3,3 +3,7 @@ token.json
 *.bin
 *.pt
 *.safetensors
+*.json
+*.pth
+results
+logs
